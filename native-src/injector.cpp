@@ -64,7 +64,6 @@ static void GetJNIEnv(JavaVM* jvm, JNIEnv*& jni_env) {
 static jclass DefineOrGetInjector(JNIEnv* jni_env) {
   const auto existing_injector_class = jni_env->FindClass(INJECTOR_CLASS_NAME);
   if (existing_injector_class) {
-    ShowMessage(L"Injector class is already presented in jvm, using it");
     return existing_injector_class;
   }
   const auto injector_class = jni_env->DefineClass(
@@ -111,11 +110,9 @@ static void CallInjector(JNIEnv* jni_env, jclass injector_class,
 
   jni_env->CallStaticVoidMethod(
       injector_class, inject_method_id, jar_classes_array);
-  ShowMessage(L"Native part ready, now java part is injecting");
 }
 
 void RunInjector() {
-  ShowMessage(L"Starting");
 
   const auto jvm = GetJVM();
 
