@@ -6,7 +6,6 @@
 HMODULE global_dll_instance = nullptr;
 
 void ShowMessage(const wchar_t* message) {
-  MessageBoxW(nullptr, message, L"JarToDllInjector", MB_OK | MB_ICONINFORMATION);
 }
 
 void Error(const wchar_t* error) {
