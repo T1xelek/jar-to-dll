@@ -75,7 +75,7 @@ public class ForgeInjector extends Thread {
                                 writer.println("It is recommended to remove " + className + ".class from your input.jar");
                             }
                         }
-                        if (tClass == null || !tClass.getName().equals("Injector")) continue;
+                        if (tClass == null || !tClass.getName().equals("cc.monoline.Injector")) continue;
                         mainClass = tClass;
                     }
                     catch (Exception e) {
